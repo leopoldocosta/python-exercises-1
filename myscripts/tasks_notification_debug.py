@@ -38,16 +38,17 @@ def notify(task):
     winsound.MessageBeep()
 
 # Main function to track time and notify
-def task_scheduler(csv_file):
-    tasks = read_tasks(csv_file)
+def task_scheduler(tasks):
+    notified_times = set()  # To keep track of times already notified
     while True:
-        # Get current time in HH:MM format
+        # Get current time in HH:MM format (corrected format)
         current_time = datetime.now().strftime("%H:%M")
         print(f"Current time: {current_time}")  # Debugging print
 
         # If a task matches the current time, notify
-        if current_time in tasks:
+        if current_time in tasks and current_time not in notified_times:
             notify(tasks[current_time])
+            notified_times.add(current_time)  # Avoid notifying multiple times for the same task
         else:
             print("No task for this time.")  # Debugging print
         
@@ -59,4 +60,5 @@ csv_file = r"C:\Users\leopoldo.costa\OneDrive\Tasks.csv"
 
 # Start the scheduler
 if __name__ == "__main__":
-    task_scheduler(csv_file)
+    tasks = read_tasks(csv_file)  # Read the CSV once at the beginning
+    task_scheduler(tasks)  # Pass tasks to the scheduler
