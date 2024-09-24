@@ -1,6 +1,7 @@
 import csv
+from datetime import datetime, timedelta
+import sched
 import time
-from datetime import datetime
 from win10toast import ToastNotifier
 import winsound
 
@@ -8,57 +9,59 @@ import winsound
 def read_tasks(csv_file):
     tasks = {}
     try:
-        # Open the CSV file with utf-8-sig encoding to handle the BOM character
         with open(csv_file, newline='', encoding='utf-8-sig') as file:
             reader = csv.DictReader(file, delimiter=';')  # Use delimiter=';'
-            
-            # Print the actual fieldnames (headers) from the CSV for debugging
-            print(f"CSV Headers: {reader.fieldnames}")
-            
             for row in reader:
-                # Make sure 'Time' and 'Task' columns exist in the row
                 time_column = row.get('Time', '').strip()  # Strip leading/trailing spaces
                 task_column = row.get('Task', '').strip()  # Strip leading/trailing spaces
                 if time_column and task_column:
                     tasks[time_column] = task_column
-                else:
-                    print(f"Error: Missing 'Time' or 'Task' in row: {row}")
     except UnicodeDecodeError as e:
         print(f"Error reading CSV file due to encoding issue: {e}")
     return tasks
 
 # Function to show notification
 def notify(task):
-    # Windows notification
     toaster = ToastNotifier()
-    print(f"Notifying: {task}")  # Debugging print
     toaster.show_toast("Task Reminder", f"Next task: {task}", duration=10, threaded=True)
-
-    # Play Windows sound (Beep sound)
     winsound.MessageBeep()
 
-# Main function to track time and notify
-def task_scheduler(tasks):
-    notified_times = set()  # To keep track of times already notified
-    while True:
-        # Get current time in HH:MM format (corrected format)
-        current_time = datetime.now().strftime("%H:%M")
-        print(f"Current time: {current_time}")  # Debugging print
+# Function to notify script start
+def notify_start():
+    toaster = ToastNotifier()
+    toaster.show_toast("Task Scheduler", "The task scheduler has started.", duration=5, threaded=True)
+    winsound.MessageBeep()
 
-        # If a task matches the current time, notify
-        if current_time in tasks and current_time not in notified_times:
-            notify(tasks[current_time])
-            notified_times.add(current_time)  # Avoid notifying multiple times for the same task
-        else:
-            print("No task for this time.")  # Debugging print
-        
-        # Wait for a short time (30 seconds) for testing
-        time.sleep(30)  # Change this to 900 seconds (15 minutes) in final code
+# Scheduler function that checks tasks and orchestrates notifications
+def schedule_next_task(scheduler, tasks):
+    now = datetime.now()
+    current_time = now.strftime("%H:%M")
+
+    if current_time in tasks:
+        notify(tasks[current_time])
+
+    # Schedule next task check for the next minute
+    next_check = now + timedelta(minutes=1)
+    delay = (next_check - datetime.now()).total_seconds()
+    scheduler.enter(delay, 1, schedule_next_task, (scheduler, tasks))
+
+# Main function to embark on the task scheduling
+def task_scheduler(csv_file):
+    tasks = read_tasks(csv_file)  # Read tasks from CSV
+    notify_start()  # Notify that the script has started
+
+    # Create a scheduler to manage task notifications dynamically
+    scheduler = sched.scheduler(time.time, time.sleep)
+    
+    # Schedule the first check
+    scheduler.enter(0, 1, schedule_next_task, (scheduler, tasks))
+    
+    # Start the scheduler
+    scheduler.run()
 
 # Path to your tasks CSV file
 csv_file = r"C:\Users\leopoldo.costa\OneDrive\Tasks.csv"
 
 # Start the scheduler
 if __name__ == "__main__":
-    tasks = read_tasks(csv_file)  # Read the CSV once at the beginning
-    task_scheduler(tasks)  # Pass tasks to the scheduler
+    task_scheduler(csv_file)
