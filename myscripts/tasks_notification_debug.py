@@ -42,7 +42,7 @@ def task_scheduler(csv_file):
     tasks = read_tasks(csv_file)
     while True:
         # Get current time in HH:MM format
-        current_time = datetime.now().strftime("%H:%MM")
+        current_time = datetime.now().strftime("%H:%M")
         print(f"Current time: {current_time}")  # Debugging print
 
         # If a task matches the current time, notify
