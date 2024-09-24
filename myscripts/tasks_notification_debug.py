@@ -31,6 +31,7 @@ def read_tasks(csv_file):
 def notify(task):
     # Windows notification
     toaster = ToastNotifier()
+    print(f"Notifying: {task}")  # Debugging print
     toaster.show_toast("Task Reminder", f"Next task: {task}", duration=10, threaded=True)
 
     # Play Windows sound (Beep sound)
@@ -41,14 +42,17 @@ def task_scheduler(csv_file):
     tasks = read_tasks(csv_file)
     while True:
         # Get current time in HH:MM format
-        current_time = datetime.now().strftime("%H:%M")
+        current_time = datetime.now().strftime("%H:%MM")
+        print(f"Current time: {current_time}")  # Debugging print
 
         # If a task matches the current time, notify
         if current_time in tasks:
             notify(tasks[current_time])
+        else:
+            print("No task for this time.")  # Debugging print
         
-        # Wait for 15 minutes before checking again
-        time.sleep(900)  # 15 minutes = 900 seconds
+        # Wait for a short time (30 seconds) for testing
+        time.sleep(30)  # Change this to 900 seconds (15 minutes) in final code
 
 # Path to your tasks CSV file
 csv_file = r"C:\Users\leopoldo.costa\OneDrive\Tasks.csv"
