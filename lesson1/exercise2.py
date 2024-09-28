@@ -7,19 +7,12 @@
 def main():
     # Program Logic
     
-    # Create a variable named 'sf_gw1', assign it an IP address of 172.31.255.1/24
-    ip1 = "172.31.255.1/24"
-    ip2 = input("sf_gw1 IP address is: " + ip1 + ". Type sf_gw2 IP address: ")
+    # Create a script that prompts for a data center location.
+    dclocation = input("Insert Datacentre location: ")
 
-    name1 = "sf_gw1"
-    name2 = "sf_gw2"
-
-    header = "-" * 20
-
-    print()
-    print(f"{name1:^20}{name2:^20}")
-    print(f"{header:^20}{header:^20}")
-    print(f"{ip1:^20}{ip2:^20}")
+    print("Upper case: " + dclocation.upper() + "\n")
+    print("Show whitespace" + repr(dclocation))
+    print("Remove whitespace and uppercase, while checking for whitespace left: " + repr(dclocation.upper().strip()))
 
 if __name__ == "__main__":
     # This block only runs if the script is executed directly
