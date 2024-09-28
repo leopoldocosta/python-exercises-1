@@ -26,6 +26,8 @@ I'm on a journey to expand my skills and knowledge in **software development** a
 ## 📈 My GitHub Stats
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=leopoldocosta&show_icons=true&theme=radical)
+
+
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=leopoldocosta&layout=compact&theme=radical)
 
 ---
