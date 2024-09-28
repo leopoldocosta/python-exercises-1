@@ -10,7 +10,7 @@ def main():
     ip_addr = "10.12.17.1"
     mac_addr = "0024.c4e9.48ae"
 
-    print("\n" + ip_addr + "-->" + mac_addr)
+    print("\n" + ip_addr + " --> " + mac_addr + "\n")
 
 if __name__ == "__main__":
     # This block only runs if the script is executed directly
