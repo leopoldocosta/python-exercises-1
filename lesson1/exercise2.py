@@ -8,11 +8,11 @@ def main():
     # Program Logic
     
     # Create a script that prompts for a data center location.
-    dclocation = input("Insert Datacentre location: ")
+    dclocation = input("\nInsert Datacentre location: " + "\n")
 
-    print("Upper case: " + dclocation.upper() + "\n")
-    print("Show whitespace" + repr(dclocation))
-    print("Remove whitespace and uppercase, while checking for whitespace left: " + repr(dclocation.upper().strip()))
+    print("\nUpper case: " + dclocation.upper() + "\n")
+    print("Show whitespace" + repr(dclocation) + "\n")
+    print("Remove whitespace and uppercase, while checking for whitespace left: " + repr(dclocation.upper().strip()) + "\n")
 
 if __name__ == "__main__":
     # This block only runs if the script is executed directly
