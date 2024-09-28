@@ -1,0 +1,14 @@
+
+
+
+{
+    "version": "2.0.0",
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".*",  // Roda em qualquer arquivo salvo
+                "command": "powershell -ExecutionPolicy Bypass -File ${workspaceFolder}/myscripts/autocommit/autocommit.ps1"
+            }
+        ]
+    }
+}
