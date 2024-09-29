@@ -1,6 +1,5 @@
 Here is an improved version of my Python automation course notes, formatted for better readability, clarity, and usability.
 
-
 ## Table of Contents
 1. [Installing Python](#1-installing-python)
 2. [Creating a Virtual Environment](#2-creating-a-virtual-environment)
@@ -10,11 +9,22 @@ Here is an improved version of my Python automation course notes, formatted for 
 6. [Installing Requirements](#6-installing-requirements)
 7. [Configuring IPython Autocomplete](#7-configuring-ipython-autocomplete)
 8. [Using IPython REPL](#8-using-ipython-repl)
-9. [Python Variables and Naming Conventions](#9-python-variables-and-naming-conventions)
-10. [String Operations](#10-string-operations)
-11. [Python Best Practices](#11-python-best-practices)
-12. [Working with Columns](#12-working-with-columns)
-
+9. [Dunder Variables (Magic Variables)](#9-dunder-variables-magic-variables)
+10. [Naming Conventions in Python](#10-naming-conventions-in-python)
+11. [Print and Input in Python](#11-print-and-input-in-python)
+12. [Indentation Matters in Python](#12-indentation-matters-in-python)
+13. [Append vs. Extend for Lists](#13-append-vs-extend-for-lists)
+14. [Tuples in Python](#14-tuples-in-python)
+15. [Executing a Script in Python](#15-executing-a-script-in-python)
+16. [Using the `dir()` Method](#16-using-the-dir-method)
+17. [Using the `help()` Method](#17-using-the-help-method)
+18. [Multi-line Strings](#18-multi-line-strings)
+19. [String Methods and Operations](#19-string-methods-and-operations)
+20. [F-strings in Python](#20-f-strings-in-python)
+21. [String Membership and Raw Strings](#21-string-membership-and-raw-strings)
+22. [String Concatenation](#22-string-concatenation)
+23. [Accessing String Indexes](#23-accessing-string-indexes)
+24. [Working with Columns](#24-working-with-columns)
 
 ---
 
