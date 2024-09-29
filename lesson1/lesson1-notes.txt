@@ -1,0 +1,444 @@
+
+
+>> INSTALAR PYTHON
+
+>> CRIAR VIRTUAL ENV
+
+py -m venv py311_venv
+
+
+>> ACESSAR ATIVAR O AMBIENTE CRIADO
+
+Rodar o script de ativação
+
+C:\Users\leopoldo.costa\OneDrive\python>py311_venv\Scripts\activate
+
+(py311_venv) C:\Users\leopoldo.costa\OneDrive\python>
+
+
+>> ATUALIZAR O PIP
+
+
+Pip install pip==24.2
+
+(py311_venv) C:\Users\leopoldo.costa\OneDrive\python\py311_venv>python.exe -m pip install --upgrade pip
+
+>> CHECAR MÓDULOS INSTALADOS
+
+Pip list
+
+>> INSTALAR OS REQUERIMENTOS
+
+ipython==8.6.0
+pylama==8.4.1
+black==23.3.0
+rich==13.3.3
+netmiko==4.2.0
+emoji==2.2.0
+
+
+learning_python/requirements.txt at main · twin-bridges/learning_python · GitHub
+
+
+>> MANIPULAR IPYTHON AUTOCOMPLETE
+
+C:\Users\leopoldo.costa\OneDrive\python\py311_venv\Scripts
+
+
+(py311_venv) C:\Users\leopoldo.costa\OneDrive\python\py311_venv>Scripts\ipython.exe profile create
+[ProfileCreate] Generating default config file: WindowsPath('C:/Users/leopoldo.costa/.ipython/profile_default/ipython_config.py')
+
+Adicionar ao config:
+
+c = get_config()  #noqa
+c.TerminalInteractiveShell.autosuggestions_provider = None
+
+>> ACESSAR REPL do IPYTHON PARA EXPERIMENTAR CÓDIGOS
+
+(py311_venv) C:\Users\leopoldo.costa\OneDrive\python\py311_venv\learning_python\lesson1>python -m IPython
+Python 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.6.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]:
+
+_ underscore -> gargabe variable
+Linters > check code for convention
+
+
+>> DUNDER VARIABLES - MAGIC VARIABLES
+
+In [11]: _
+Out[11]: str
+
+In [12]: __name__
+Out[12]: '__main__'
+
+In [13]: _my_var = "private atribute, private variable, private method"
+
+In [14]: __my_var = "doble leading underscore special name"
+
+
+>> NAMING CONVETIONS
+
+
+Class names, constants, object inside methods, single underscore throw away variable;
+
+>> PRINT AND INPUT
+
+In [21]: print("hello world")
+hello world
+
+In [22]: print(22)
+22
+
+In [23]: print(global_delay_factor)
+4
+
+In [24]: my_var = input("Enter an Ip Address: ")
+Enter an Ip Address: 192.168.16.16
+
+In [25]: print(my_var)
+192.168.16.16
+
+
+
+>> CHARACTERISTICS
+
+Indentation Matter - Always use spaces not tabs - easier with python lint - 4 space each indentation level
+
+Pep 8 - indicates style guides
+PEP 8 – Style Guide for Python Code | peps.python.org
+How to Write Beautiful Python Code With PEP 8 – Real Python
+
+Prothonic prythonic - programming style
+How to Write Pythonic Code | Built In
+What Is Pythonic Style? | Udacity
+Everything You Need to Know About Pythonic | Lenovo US
+
+>> difference between append() and extend() methods in Python lists?
+The append() method adds a single element to the end of a list, while the extend() method takes an iterable (such as another list) and adds each element individually to the end of the list.
+
+De <https://www.lenovo.com/us/en/glossary/pythonic/?orgRef=https%253A%252F%252Fwww.google.com.br%252F&srsltid=AfmBOopmc_Ie0uvPVkq_WnJ45AnzJ3Q-atnhy03wfnnKvEaHN3bZB9GH> 
+
+
+>> Tuples
+Tuples are used to store multiple items in a single variable. Tuple is one of 4 built-in data types in Python used to store collections of data, the other 3 are List, Set, and Dictionary, a
+
+De <https://www.bing.com/search?q=tuple&FORM=SSQUIC&PC=U531&darkschemeovr=1> 
+
+
+>> PEP8
+
+How to Write Beautiful Python Code With PEP 8 – Real Python
+
+PEP 8 – Style Guide for Python Code | peps.python.org
+
+PEP 257 – Docstring Conventions | peps.python.org
+
+
+Raymond Hettinger - Beyond PEP 8 -- Best practices for beautiful intelligible code - PyCon 2015 (youtube.com)
+
+>> EXECUTING SCRIPT
+
+#!/PYTHONPATH
+#!/usr/bin/env python
+
+Chmod 755 my_code.py
+ls -al my_code.py
+
+./my_code.py
+
+
+>> DIR Method
+
+Entrar no REPL:
+python -m Ipython
+
+In [1]: my_var = "a string"
+
+Dir par ver os métodos disponíveis
+
+In [2]: dir(my_var)
+Out[2]:
+['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+[...]
+ 'capitalize',
+ 'casefold',
+ 'center',
+ 'count',
+ 'encode',
+ 'endswith',
+ 'expandtabs',
+ 'find',
+[...]
+
+>> HELP Method
+
+Para verificar o que fazer com um método encontrado no dir()
+
+colocar a variável "ponto" método, myvar.strip, por exemplo
+
+In [3]: help(my_var.strip)
+Help on built-in function strip:
+
+strip(chars=None, /) method of builtins.str instance
+    Return a copy of the string with leading and trailing whitespace removed.
+
+    If chars is given and not None, remove characters in chars instead.
+
+
+>> MULTILINE STRING
+
+Você pode ter strings com múltiplas linhas
+
+In [8]: m_string = """
+   ...: multiline
+   ...: qotes
+   ...: variable
+   ...: end it with same
+   ...: """
+
+In [9]: '''
+   ...: cand be
+   ...: done with
+   ...: single quote
+   ...: '''
+Out[9]: '\ncand be\ndone with\nsingle quote\n'
+
+
+>> STRING METHODs and CALLING METHODs
+
+variable.method()
+
+my_var.upper()
+
+
+In [3]: my_var.upper()
+Out[3]: 'A STRING'
+
+In [5]: my_var
+Out[5]: 'a string'
+
+
+Split method quebra a string e retorna uma lista
+
+In [6]: sentence = "this is a setence that will be splited"
+
+In [7]: sentence.split()
+Out[7]: ['this', 'is', 'a', 'setence', 'that', 'will', 'be', 'splited']
+
+
+>>> Split com ponto
+
+In [8]: ip_addr = "182.32.32.19"
+
+In [9]: ip_addr.split(".")
+Out[9]: ['182', '32', '32', '19']
+
+
+Join para lista de valores, usando por exemplo ponto
+In [10]: octets =  ['182', '32', '32', '19']
+
+In [11]: octets
+Out[11]: ['182', '32', '32', '19']
+
+In [13]: ".".join(octets)
+Out[13]: '182.32.32.19'
+
+
+>>> Strip method remove espaço em branco no início e final
+
+Lstrip espaços na esquerda
+
+Rstrip espaços na direita
+
+
+>>> Já o splitlines transforma em lista baseado no \n
+
+In [15]: paragraph = """
+    ...: this
+    ...: is a
+    ...: paragraph for
+    ...: a test
+    ...: of a method
+    ...: """
+
+In [16]: paragraph.splitlines()
+Out[16]: ['', 'this', 'is a ', 'paragraph for', 'a test', 'of a method']
+
+
+>>> Chain methods - vários métodos seguidos
+
+In [27]: paragraph.upper().splitlines()
+Out[27]: ['', 'THIS', 'IS A ', 'PARAGRAPH FOR', 'A TEST', 'OF A METHOD']
+
+
+>>> Embutir variáveis em strings
+
+In [29]: my_var
+Out[29]: 'a string'
+
+In [30]: "this is some string: %s" % "embedding variables test"
+Out[30]: 'this is some string: embedding variables test'
+
+In [31]: "this is some string: %s" % my_var
+Out[31]: 'this is some string: a string'
+
+Curly braces format embedding method (embutir)
+
+In [34]: "this is some string: %s %s" % (my_var, my_var2)
+Out[34]: 'this is some string: a string > yet another string'
+
+In [36]: "this is some string: {} {}".format(my_var, my_var2)
+Out[36]: 'this is some string: a string > yet another string'
+
+
+>>> Fstrings replace embedding
+
+In [38]: f"This is some string embedding test: {my_var} and {my_var2}"
+Out[38]: 'This is some string embedding test: a string and > yet another string'
+
+
+In [50]: print(f"F-strings me permitem embutir variávels em uma string: {ip_
+    ...: addr}")
+F-strings me permitem embutir variávels em uma string: 182.32.32.19
+
+In [51]: print(f"F-strings me permitem embutir expressões: {2 + 12 + 0.5}")
+F-strings me permitem embutir expressões: 14.5
+
+In [52]: print(f"F-strings me permitem embutir expressões: {ip_addr.split('.
+    ...: ')[2]}")
+F-strings me permitem embutir expressões: 32
+
+
+>> CRIAR COLUNAS COM F-strings
+
+In [56]: print(f"{ip_addr1:20}{ip_addr2:20}{ip_addr3:20}")
+112.232.32.231      3.2.42.92           234.32.54.98
+
+Usando o < ou > para alinhar o texto dentro da coluna
+
+In [56]: print(f"{ip_addr1:20}{ip_addr2:20}{ip_addr3:20}")
+112.232.32.231      3.2.42.92           234.32.54.98
+
+>> OUTRAS características DE F-string
+
+>>> STRINGS MEMBERSHIP - existe uma substring dentro da string?
+
+In [58]: "is a" in paragraph
+Out[58]: True
+
+In [59]: paragraph
+Out[59]: '\nthis\nis a \nparagraph for\na test\nof a method\n'
+
+
+
+>>> RAW STRINGS - desligar caracteres coringas especiais na string para permitir usar um texto direto que possui caractéres coringas
+
+In [62]: win_path = "c:\window\system32\drivers\etc\new_hosts"
+
+In [63]: print(win_path)
+c:\window\system32\drivers\etc
+ew_hosts',
+ '__getattribute__',
+
+In [64]: win_path = r"c:\window\system32\drivers\etc\new_hosts"
+
+In [65]: print(win_path)
+c:\window\system32\drivers\etc\new_hosts
+ '__hash__',
+
+
+>>> STRING CONCATENATION - concatenar strings
+
+In [66]: city = "Governador Valadares"
+
+In [67]: state = "MG"
+
+In [68]: location = city + ", " + state
+
+In [69]: location
+Out[69]: 'Governador Valadares, MG'
+
+
+>>> STRING CONCATENATE +=
+
+
+In [70]: data = "line 1 text output\n"
+
+In [71]: data = data + "line 2 text output\n"
+
+In [72]: data
+Out[72]: 'line 1 text output\nline 2 text output\n'
+ '__setattr__',
+
+In [73]: print(data)
+line 1 text output
+line 2 text output',
+ 'capitalize',
+ 'casefold',
+
+In [74]: new_data = "yet another line1 \n"
+
+In [75]: new_data += "just another line2\n"
+
+In [76]: print(new_data)
+yet another line1
+just another line2
+ 'format_map',
+ 'index',
+
+
+
+>>> INDEX String sequence index access
+
+In [77]: my_var = "my text"
+
+In [78]: my_var[4]
+Out[78]: 'e'
+ 'isdigit',
+
+>>> LENGTH
+
+In [79]: len(my_var)
+Out[79]: 7
+ 'isnumeric',
+
+LOOPING string
+
+In [80]: for letter in my_var:
+    ...:     print(letter)
+    ...:
+m
+y'join',
+ 'ljust',
+t'lower',
+e'lstrip',
+x'maketrans',
+t'partition',
+ 'removeprefix',
+
+
+>> COLUNAS
+
+    ...: ip_addr2 = "192.168.10.1"
+    ...: ip_addr3 = "172.31.1.9"
+    ...: header = "-" * 20
+    ...: header1 = "ip_addr1"
+    ...: header2 = "ip_addr2"
+    ...: header3 = "ip_addr3"
+    ...:
+    ...: print()
+    ...: print(f"{header1:^20} {header2:^20} {header3:^20}")
+    ...: print(f"{header:^20} {header:^20} {header:^20}")
+    ...: print(f"{ip_addr1:^20} {ip_addr2:^20} {ip_addr3:^20}")
+    ...: print()
+
+      ip_addr1             ip_addr2             ip_addr3
+-------------------- -------------------- --------------------
+    10.220.89.17         192.168.10.1          172.31.1.9
+
