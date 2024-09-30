@@ -116,6 +116,7 @@ def main():
   test(mix_up('gnash', 'sport'), 'spash gnort')
   test(mix_up('pezzy', 'firm'), 'fizzy perm')
 
+  print("Just finished 1 full google exercise with strings")
 
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
