@@ -69,8 +69,9 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-  # +++your code here+++
-  return
+  parta = a[2:]
+  partb = b[2:]
+  return f'{b[0]}{b[1]}{parta} {a[0]}{a[1]}{partb}'
 
 
 # Provided simple test() function used in main() to print
