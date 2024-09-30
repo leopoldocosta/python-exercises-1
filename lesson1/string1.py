@@ -53,8 +53,12 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  return
+        first_letter = s[0]
+        remaining_sentence = s[1:]
+        print(f"{first_letter}")
+        modified_part = remaining_sentence.replace(first_letter, '*')
+        print(f"{modified_part}")
+        return f"{first_letter}{modified_part}"
 
 
 # D. MixUp
