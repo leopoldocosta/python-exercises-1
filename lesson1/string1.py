@@ -117,7 +117,7 @@ def main():
   test(mix_up('pezzy', 'firm'), 'fizzy perm')
 
   print("Just finished 1 full google exercise with strings")
-  print("https://developers.google.com/edu/python/strings?__s=g38zwhj99ip6y3t6yc88")
+  print("Link: https://developers.google.com/edu/python/strings?__s=g38zwhj99ip6y3t6yc88")
 
 # Standard boilerplate to call the main() function.
 if __name__ == '__main__':
